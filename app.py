@@ -1,6 +1,8 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.expression import func
+from sqlalchemy import create_engine
+from sqlalchemy.exc import OperationalError
 from models import db, Categoria, DatoCurioso
 import os
 
@@ -11,11 +13,15 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 def verificar_y_crear_tablas():
-    with app.app_context():
-        print("Iniciando creación de la base de datos...")
+    try:
+        engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+        with engine.connect() as connection:
+            print("Conexión exitosa a la base de datos.")
         db.create_all()
         print("Base de datos creada exitosamente.")
-        
+    except OperationalError as e:
+        print(f"Error al conectar con la base de datos: {e}")
+
 
 # Endpoint para obtener datos curiosos por categoría
 @app.route('/datos/<string:categoria>', methods=['GET'])
