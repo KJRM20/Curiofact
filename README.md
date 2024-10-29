@@ -6,7 +6,6 @@ CurioFact es una API que proporciona datos curiosos organizados en categorías c
 - [Descripción](#descripción)
 - [Instalación](#instalación)
 - [Configuración de la Base de Datos](#configuración-de-la-base-de-datos)
-- [Población de Datos](#población-de-datos)
 - [Uso](#uso)
 - [Endpoints](#endpoints)
 - [Tecnologías](#tecnologías)
