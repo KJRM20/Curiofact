@@ -4,6 +4,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 # Ejecuta `create_all()` dentro del contexto de la aplicación
 with app.app_context():
+    print("Iniciando creación de la base de datos...")
     try:
         db.create_all()
         print("Base de datos creada exitosamente.")
