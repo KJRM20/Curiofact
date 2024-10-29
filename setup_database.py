@@ -1,12 +1,4 @@
-from app import app, db  # Importa la instancia de `app` y `db` desde `app.py`
-from models import Categoria, DatoCurioso
-from sqlalchemy.exc import SQLAlchemyError
+from app import verificar_y_crear_tablas
 
-# Ejecuta `create_all()` dentro del contexto de la aplicación
-with app.app_context():
-    print("Iniciando creación de la base de datos...")
-    try:
-        db.create_all()
-        print("Base de datos creada exitosamente.")
-    except SQLAlchemyError as e:
-        print("Error al crear la base de datos:", str(e))
+if __name__ == "__main__":
+    verificar_y_crear_tablas()

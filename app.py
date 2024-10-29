@@ -10,6 +10,13 @@ print("DATABASE_URL:", os.getenv('DATABASE_URL'))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
+def verificar_y_crear_tablas():
+    with app.app_context():
+        print("Iniciando creación de la base de datos...")
+        db.create_all()
+        print("Base de datos creada exitosamente.")
+        
+
 # Endpoint para obtener datos curiosos por categoría
 @app.route('/datos/<string:categoria>', methods=['GET'])
 def obtener_datos_por_categoria(categoria):
