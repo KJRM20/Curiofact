@@ -43,4 +43,6 @@ def obtener_dato_aleatorio(categoria):
     })
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    #app.run(debug=True) #Local
+    app.run()
+
