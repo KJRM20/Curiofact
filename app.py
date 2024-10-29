@@ -25,7 +25,7 @@ def obtener_datos_por_categoria(categoria):
     ])
 
 # Endpoint para obtener un dato aleatorio de una categoría
-@app.route('/curiofact/dato_aleatorio/<string:categoria>', methods=['GET'])
+@app.route('/dato_aleatorio/<string:categoria>', methods=['GET'])
 def obtener_dato_aleatorio(categoria):
     categoria_obj = Categoria.query.filter_by(nombre=categoria).first()
     if not categoria_obj:
